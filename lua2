@@ -17,6 +17,8 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
 
     if cmd == ":setPos" then
         _G.pos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.cFrame
+    elseif cmd == ":rejoin" then
+        game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
     elseif cmd == ":tp" then
         if args[2] == "/p" then
             local player = game:GetService("Players"):FindFirstChild(args[3])

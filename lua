@@ -5098,18 +5098,17 @@ logs:Create(
     "Button",
     "Teleport Logs to position",
     function(v)
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
         for _, Log in pairs(game.Workspace.LogModels:GetChildren()) do
             if Log.Name:sub(1, 6) == "Loose_" and Log:findFirstChild("Owner") then
                 if Log.Owner.Value == game.Players.LocalPlayer then
                     for i,v in pairs(Log:GetChildren()) do
                         if v.Name=="WoodSection" then
                             spawn(function()
-                                for i=1,5 do
-                                    wait()
-                                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-                                    wait(.1)
-                                    v.CFrame=_G.pos
-                                end
+                                wait()
+                                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                                wait(.1)
+                                v.CFrame=_G.pos
                             end)
                         end
                     end
@@ -5122,6 +5121,9 @@ logs:Create(
                 end
             end
         end
+    
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = _G.pos
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
     end,
     {
         animated = true

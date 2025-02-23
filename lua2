@@ -9,6 +9,7 @@ local function notif(t, m)
 end
 
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+    notif("chat", msg)
     if msg[1] ~= ":" then return end
 
     local args = msg:split(' ')

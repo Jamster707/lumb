@@ -7,7 +7,7 @@ local function notif(t, m)
         Text = m, -- Required
     })
 end
-
+notif("script", "loaded")
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
     notif("chat", msg)
     if msg[1] ~= ":" then return end
@@ -29,3 +29,4 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
     end
     
 end)
+notif("script", "loaded")

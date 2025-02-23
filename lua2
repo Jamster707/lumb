@@ -14,6 +14,9 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
     notif("chat", msg)
 
     local args = msg:split(' ')
+    for i, v in pairs(args) do
+        notif("chat", v)
+    end
     local cmd = args:sub(1, 1)
 
     if cmd == "!setPos" then

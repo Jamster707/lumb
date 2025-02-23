@@ -7,7 +7,7 @@ local function notif(t, m)
         Text = m, 
     })
 end
-
+notif("asd", "loaded")
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
     notif("chat", msg)
     wait(.5)

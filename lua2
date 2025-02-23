@@ -11,13 +11,13 @@ end
 notif("commands", "loading...")
 
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    notif("chat", msg[1])
-
-    if msg[1] ~= "!" then return end
+    notif("chat", msg)
 
     local args = msg:split(' ')
     local cmd = args[1]
 
+    notif("chat", cmd)
+    
     if cmd == "!setPos" then
         _G.pos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.cFrame
     elseif cmd == "!rejoin" then

@@ -3,13 +3,13 @@ _G.pos = 0
 
 local function notif(t, m)
     game:GetService("StarterGui"):SetCore("SendNotification",{
-        Title = t, -- Required
-        Text = m, -- Required
+        Title = t, 
+        Text = m, 
     })
 end
-notif("script", "loaded")
 game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
-    notif("chat", msg)
+    notif("chat", msg[1])
+
     if msg[1] ~= ":" then return end
 
     local args = msg:split(' ')
@@ -29,4 +29,3 @@ game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
     end
     
 end)
-notif("script", "loaded")

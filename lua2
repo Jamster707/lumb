@@ -1,0 +1,30 @@
+
+_G.pos = 0
+
+local function notif(t, m)
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+        Title = t, -- Required
+        Text = m, -- Required
+    })
+end
+
+game:GetService("Players").LocalPlayer.Chatted:Connect(function(msg)
+    if msg[1] ~= ":" then return end
+
+    local args = msg:split(' ')
+    local cmd = commands[1]
+
+    if cmd == ":setPos" then
+        _G.pos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.cFrame
+    elseif cmd == ":tp" then
+        if args[2] == "/p" then
+            local player = game:GetService("Players"):FindFirstChild(args[3])
+            if player == nil then 
+                notif("tp", "invalid name")
+                return 
+            end
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.cFrame = player.Character.HumanoidRootPart.cFrame
+        end
+    end
+    
+end)

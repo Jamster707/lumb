@@ -2091,7 +2091,7 @@ opts2:Create(
         text = ""
     }
 )
-_G.GuiToggleKey = Enum.KeyCode.RightControl
+_G.GuiToggleKey = Enum.KeyCode.Z
 _G.ClickTPKey = Enum.KeyCode.LeftControl
 _G.SprintKey = Enum.KeyCode.LeftShift
 local noclipkeyset = Enum.KeyCode.N
